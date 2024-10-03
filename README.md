@@ -1,10 +1,12 @@
 # Node-Arithmetic-Tree-From-Text
 Quick text-to-value conversion via node tree, RPN and modified Shunting yard algorithm in C++.
 
-This project allows the user to calculate full-on expressions using Expression<double> class to determine the expression's value during the runtime. The project was written in such a way that the creation of the tree itself needs a bit of an overhead so that it can be calculated very fast, multiple times in quick succession.
+##### Version: 0.1.0
+
+This project allows the user to calculate full-on expressions using ***Expression<double>*** class to determine the expression's value during the runtime. The project was written in such a way that the creation of the tree itself needs a bit of an overhead so that it can be calculated very fast, multiple times in quick succession.
 
 # Capabilities
-The trees are built in such a way that they are perfect for, e.g., a set of variables that can be twekable before each re-calculation of a tree.
+The trees are built in such a way that they are perfect for, e.g., a set of variables that can be twekable before each re-calculation of a tree. Most of the nodes have a flag (***isInvalid***) that determines whether or not node was changed in any way, and if not, the precalculated value of the subtree is used to speed up the calculation time (temporary disabled).
 
 Currently, there are a set of few predefined (yet fully expandable) behaviors in the project:
 - values
