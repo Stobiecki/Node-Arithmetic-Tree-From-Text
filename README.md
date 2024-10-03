@@ -1,6 +1,6 @@
 # Node-Arithmetic-Tree-From-Text
 
-### Version: 0.1.0
+### *Version: 0.1.0*
 
 Quick text-to-value conversion via node tree, RPN and modified Shunting yard algorithm in C++.
 
