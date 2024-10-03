@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Pliki źródłowe">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Pliki zasobów">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Nodes">
+      <UniqueIdentifier>{c41db232-4dde-4c7e-9f15-4b2a4eb14124}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes\headers">
+      <UniqueIdentifier>{08e6cfd7-8bf3-4964-98c6-e0a92f11deab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nodes\cpp">
+      <UniqueIdentifier>{296b36d7-5f62-4ea7-8cdd-f17fa6aad976}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="CalculationNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Expression.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="InfixOperationNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="OperationNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="PostfixOperationNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="PrefixOperationNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="StaticData.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="ValueNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="SectionNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="Enums.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="VariableNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Node.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CalculationNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Expression.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="InfixOperationNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="OperationNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PostfixOperationNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="PrefixOperationNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="SectionNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="StaticData.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="ValueNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enums.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="VariableNode.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
