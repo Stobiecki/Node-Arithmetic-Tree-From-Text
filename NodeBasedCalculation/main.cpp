@@ -66,7 +66,6 @@ int main()
     std::cout << "Time of tree evaluation:      " << std::fixed << std::setprecision(10) << std::setw(20) << std::setfill(' ') << duration_sec << " secunds" << std::endl;
     std::cout << "\nResult value:                 " << std::fixed << std::setprecision(12) << std::setw(20) << std::setfill(' ') << result << std::endl;
 
-    std::getchar();
-
+    char c = getchar();
     return 0;
 }
