@@ -22,6 +22,9 @@
     <Filter Include="Nodes\cpp">
       <UniqueIdentifier>{296b36d7-5f62-4ea7-8cdd-f17fa6aad976}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logs">
+      <UniqueIdentifier>{8406dea6-fce5-42dd-92df-ae9ae43ff2a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -107,5 +110,13 @@
     <ClInclude Include="VariableNode.h">
       <Filter>Nodes\headers</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Filter>Logs</Filter>
+    </None>
+    <None Include="..\CHANGELOG.md">
+      <Filter>Logs</Filter>
+    </None>
   </ItemGroup>
 </Project>
