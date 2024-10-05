@@ -40,6 +40,7 @@ int main()
 
     for (int i = 0; i < iter - 2; i++)
         expr.Calculate();
+
     double result = expr.Calculate();
 
     auto end = std::chrono::high_resolution_clock::now();

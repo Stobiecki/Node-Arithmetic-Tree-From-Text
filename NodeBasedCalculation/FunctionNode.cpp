@@ -26,18 +26,7 @@ void FunctionNode<T>::ComplementEmptyArgsSection(
         //sections.push_back(Expression<T>::RearrangeToGetRootNode(_vecOfFuncArgsRanges[i].second));
     }
     areNodesReady = true;
-    //TO_DO
-    // 
-    // Dodanie porz¹dkowania sekcji w taki sposób, ¿eby mo¿naby³o
-    // dodaæ korzenie jako Node w wektorze "sections". Te wêz³y maj¹
-    // reprezentowaæ korzenie ka¿dego argumentu funkcji.
-    // 
-    // Funkcja ta Teoretycznie nie musi nic zwracaæ (a jeœli ju¿ to
-    // samego siebie)
-    // 
-    //TO_DO
 }
-
 
 // Define the Init method for FunctionNode<T>
 template <class T>
@@ -45,6 +34,14 @@ void FunctionNode<T>::Init()
 {
     // Insert the "pow" function into the map with correct types
     functions[{ "pow", 2 }] = [](T x, T y) { return std::pow(x, y); };
+    functions[{ "root", 2 }] = [](T x, T y) {
+        if ((std::fmod(x, 2.0) != 0) || (std::fmod(x, 2.0) == 0 && y >= 0))
+        {
+            return std::pow(y, 1.0/x);
+        }
+        else
+            return std::nan("");
+    };
     functions[{ "add", 2 }] = [](T x, T y) { return x+y; };
     functions[{ "minus", 2 }] = minus<double>;
 }

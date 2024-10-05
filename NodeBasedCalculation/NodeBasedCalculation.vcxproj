@@ -134,6 +134,7 @@
     <ClCompile Include="CalculationNode.cpp" />
     <ClCompile Include="Enums.cpp" />
     <ClCompile Include="Expression.cpp" />
+    <ClCompile Include="FunctionCreator.cpp" />
     <ClCompile Include="FunctionNode.cpp" />
     <ClCompile Include="InfixOperationNode.cpp" />
     <ClCompile Include="main.cpp" />
@@ -150,6 +151,7 @@
     <ClInclude Include="CalculationNode.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="Expression.h" />
+    <ClInclude Include="FunctionCreator.h" />
     <ClInclude Include="FunctionNode.h" />
     <ClInclude Include="InfixOperationNode.h" />
     <ClInclude Include="Node.h" />
