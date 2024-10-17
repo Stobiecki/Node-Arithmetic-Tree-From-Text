@@ -1,2 +1,7 @@
-﻿  FunctionCreator.cpp
+﻿  main.cpp
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244: "inicjowanie": konwersja z "_Rep" do "double", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244:         with
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244:         [
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244:             _Rep=__int64
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244:         ]
   NodeBasedCalculation.vcxproj -> E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\x64\Debug\NodeBasedCalculation.exe

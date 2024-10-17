@@ -72,6 +72,12 @@
     <ClCompile Include="FunctionCreator.cpp">
       <Filter>Nodes\cpp</Filter>
     </ClCompile>
+    <ClCompile Include="CustomFunction.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomFunctionArgumentNode.cpp">
+      <Filter>Nodes\cpp</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -114,6 +120,12 @@
       <Filter>Nodes\headers</Filter>
     </ClInclude>
     <ClInclude Include="FunctionCreator.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomFunction.h">
+      <Filter>Nodes\headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomFunctionArgumentNode.h">
       <Filter>Nodes\headers</Filter>
     </ClInclude>
   </ItemGroup>

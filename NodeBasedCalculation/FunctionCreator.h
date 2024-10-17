@@ -5,11 +5,30 @@
 #include "Node.h"
 #include "Expression.h"
 #include "FunctionNode.h"
+#include "CustomFunction.h"
+
+template<class T>
+class CustomFunctionNode;
 
 template<class T>
 class FunctionCreator
 {
 public:
+	using RestrictionType = std::variant<
+		std::function<T()>,					// e.g. ltz(T a)
+		std::tuple<std::function<T(T)>, T>	// e.g. lt(T a, T b)
+	>;
+	//FIX_ME
+	using FunctionVariant = std::variant<
+		std::function<T()>,
+		std::function<T(CustomFunctionNode<T>*)>
+	>;
+
+	static std::map<std::tuple<std::string, int>, FunctionVariant> customFunctions;
+
+	// This section corresponds to 2 args func where "a"
+	// is specific arg and "b" is custom no.
+
 	// less then
 	static bool lt(T a, T b)
 	{
@@ -40,6 +59,9 @@ public:
 	{
 		return a != b;
 	}
+
+	// This section corresponds to 2 args func where "a"
+	// is specific arg
 
 	// less then zero
 	static bool ltz(T a)
@@ -72,7 +94,12 @@ public:
 		return a != 0.0;
 	}
 
-	static bool CreateFunction_NoArgs(std::string str);
-	static bool CreateFunction(std::string str, int noOfArgs);
-	static bool CreateFunction_WithRestrictions(std::string str, int noOfArgs);
+	static bool CreateFunction_NoArgs(std::string name, std::string calculation);
+
+	// arguments in functions should be named accordingly:
+	// x1, x2, x3, x4, etc...
+	static bool CreateFunction(std::string name, std::string calculation, int noOfArgs);
+	static bool CreateFunction_WithRestrictions(std::string name, std::string calculation, int noOfArgs);
+
+	static void Init();
 };

@@ -29,7 +29,7 @@ bool ExpressionClass::isDigit(char c)
 }
 bool ExpressionClass::isDigitNumber(char c)
 {
-	return std::isalnum(c);
+	return std::isalnum(c) || c == '_';
 }
 bool ExpressionClass::isDot(char c)
 {
@@ -246,8 +246,8 @@ std::shared_ptr<Node<double>> ExpressionClass::RearrangeToGetRootNode(
 	std::vector<std::shared_ptr<Node<double>>>& _nodeHolder
 )
 {
-	std::vector<std::shared_ptr<Node<double>>> operatorStack; // Stos operatorów
-	std::vector<std::shared_ptr<Node<double>>> outputQueue;   // Kolejka wynikowa (RPN lub inna)
+	std::vector<std::shared_ptr<Node<double>>> operatorStack;
+	std::vector<std::shared_ptr<Node<double>>> outputQueue;
 
 	for (auto& node : _nodeHolder)
 	{
@@ -381,10 +381,21 @@ void ExpressionClass::findAllTokens(const std::string& str)
 						fs->functionArgsPos.push_back({ fs->functionArgStart, fs->functionArgEnd });
 					}
 
-					std::string substr = str.substr(start, end - start + 1);
-					functions_.push_back({ substr, start, end - start + 1, fs->noOfArgs, fs->functionArgsPos,  str.substr(fs->functionNameStart, fs->functionNameEnd - fs->functionNameStart) });
-					insertInOrder(preNodeHolder, { substr, start, end - start + 1, NodeType::FUNCTIONS });
-					//preNodeHolder.push_back({ substr, start, end - start + 1, NodeType::FUNCTIONS });
+					std::string funcSection = str.substr(start, end - start + 1);
+					std::string funcName = str.substr(fs->functionNameStart, fs->functionNameEnd - fs->functionNameStart);
+					// check if function can be custom
+					NodeType functionType = NodeType::CUSTOM_FUNCTIONS;
+					bool found = false;
+					for (const auto& pair : FunctionNode<double>::functions) 
+						if (std::get<0>(pair.first) == funcName)
+						{
+							found = true;
+							break;
+						}
+					if (found)
+						functionType = NodeType::FUNCTIONS;
+					functions_.push_back({ funcSection, start, end - start + 1, fs->noOfArgs, fs->functionArgsPos, funcName });
+					insertInOrder(preNodeHolder, { funcSection, start, end - start + 1, functionType });
 					fs->noOfArgs = fs->functionArgStart = fs->functionArgEnd = 0;
 					fs->functionArgsPos.clear();
 					functionStack.pop();
@@ -425,8 +436,13 @@ void ExpressionClass::findAllTokens(const std::string& str)
 			else // variable
 			{
 				StaticData::symbol = str.substr(rangeStart, rangeEnd - rangeStart);
+				// check if variable can be custom function arg
+				NodeType variableType = NodeType::VARIABLES;
+				auto it = std::find(StaticData::customFunctionArgsNames.begin(), StaticData::customFunctionArgsNames.end(), StaticData::symbol);
+				if (it != StaticData::customFunctionArgsNames.end())
+					variableType = NodeType::CUSTOM_FUNCTIONS_ARGUMENT;
 				variables.push_back({ StaticData::symbol, rangeStart, rangeEnd - rangeStart });
-				preNodeHolder.push_back({ StaticData::symbol, rangeStart, rangeEnd - rangeStart, NodeType::VARIABLES });
+				preNodeHolder.push_back({ StaticData::symbol, rangeStart, rangeEnd - rangeStart, variableType });
 			}
 			i--;
 		}
@@ -640,6 +656,53 @@ void ExpressionClass::NodeGeneration()
 			));
 			break;
 		}
+		case NodeType::CUSTOM_FUNCTIONS:
+		{
+			using std::get;
+			std::string customFuncName = get<0>(node);
+			size_t pos = get<1>(node);
+			size_t len = get<2>(node);
+
+			// gets correct tuple
+			auto it = std::find_if(functions_.begin(), functions_.end(),
+				[pos](const auto& func) {
+					return std::get<1>(func) == pos;
+				});
+
+			int argsNo = get<3>(*it);
+
+			if (it != functions_.end())
+			{
+				auto& opVariant = FunctionCreator<double>::customFunctions[{std::get<5>(*it), argsNo}];
+
+				auto func = std::visit([](auto&& op) -> std::function<double(CustomFunctionNode<double>*)> {
+					using FuncType = std::decay_t<decltype(op)>;
+
+					if constexpr (std::is_same_v<FuncType, std::function<double()>>) {
+						return [op](CustomFunctionNode<double>* cfn) -> double { return op(); };
+					}
+					else if constexpr (std::is_same_v<FuncType, std::function<double(CustomFunctionNode<double>*)>>) {
+						return [op](CustomFunctionNode<double>* cfn) -> double { return op(cfn); };
+					}
+					else {
+						throw std::invalid_argument("Unsupported function type");
+					}
+					}, opVariant);
+				nodeHolder.push_back(std::make_unique<CustomFunctionNode<double>>(customFuncName, argsNo, func, pos, len));
+			}
+			break;
+		}
+		case NodeType::CUSTOM_FUNCTIONS_ARGUMENT: // if in here then Expression must serve as custom function
+		{
+			std::string tmp(std::get<0>(preNodeHolder[pos]));
+			int argNo = std::stoi(tmp.substr(1, tmp.length()));
+			nodeHolder.push_back(std::make_unique<CustomFunctionArgumentNode<double>>(
+				tmp,
+				argNo,
+				this
+			));
+			break;
+		}
 		default:
 			break;
 		}
@@ -682,6 +745,25 @@ std::pair<std::vector<NodeTupleTemplate>, std::vector<std::shared_ptr<Node<doubl
 				node->ComplementEmptyArgsSection(vecOfFuncArgsRanges, _functions);
 			}
 		}
+		else if (dynamic_cast<CustomFunctionNode<double>*>(it->get()))
+		{
+			if (CustomFunctionNode<double>* node = dynamic_cast<CustomFunctionNode<double>*>(it->get()); node->areNodesReady == false)
+			{
+				const auto funcIt = std::find_if(_functions.begin(), _functions.end(),
+					[&](const FunctionTupleTemplate& func) {
+						return std::get<1>(func) == node->sectionStart;
+					}
+				);
+				std::vector<std::pair<int, int>> funcSections = std::get<4>(*funcIt);
+				std::vector<std::pair<std::vector<NodeTupleTemplate>, std::vector<std::shared_ptr<Node<double>>>>> vecOfFuncArgsRanges;
+				for (auto& range : funcSections)
+				{
+					auto [template_tmp, nodes_tmp] = ExtractRangeOfNodes(_preNodeHolder, _nodeHolder, range.first, range.second);
+					vecOfFuncArgsRanges.push_back({ template_tmp, nodes_tmp });
+				}
+				node->ComplementEmptyArgsSection(vecOfFuncArgsRanges, _functions);
+			}
+		}
 		it++;
 	}
 
@@ -702,6 +784,17 @@ void ExpressionClass::PrepareData()
 	SectionNode<double> tmpSection(this->textRepres, 0, this->textRepres.size());
 	this->rootNode = tmpSection.ComplementEmptySection(this->preNodeHolder, this->nodeHolder, this->functions_);
 	Calculate();
+}
+void ExpressionClass::PrepareDataWithoutCalculation()
+{
+	StaticData::currentExpression = this;
+	findAllTokens(textRepres);
+	SortSections();
+	SortFunctions(); //could be slowing down the code
+	NodeGeneration();
+	ComplementEmptyNodes(this->preNodeHolder, this->nodeHolder, this->functions_);
+	SectionNode<double> tmpSection(this->textRepres, 0, this->textRepres.size());
+	this->rootNode = tmpSection.ComplementEmptySection(this->preNodeHolder, this->nodeHolder, this->functions_);
 }
 void ExpressionClass::InitPrecedence()
 {
@@ -790,10 +883,10 @@ void ExpressionClass::LogDataToConsole()
 	std::cout << "\n\n\n\nResult value: ";
 
 	auto start = std::chrono::high_resolution_clock::now();
-	double treeCalculationResult = this->Calculate();
+	//double treeCalculationResult = this->Calculate();
 	auto end = std::chrono::high_resolution_clock::now();
 
-	std::cout << treeCalculationResult;
+	//std::cout << treeCalculationResult;
 
 	auto duration = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
 	double duration_us = duration / 1000.0;

@@ -12,6 +12,7 @@
 #include "InfixOperationNode.h"
 #include "PostfixOperationNode.h"
 #include "Expression.h"
+#include "FunctionCreator.h"
 
 template<typename T> class Expression;
 
@@ -30,6 +31,8 @@ public:
 
 	static std::map<OperatorType, std::string> operatorTypeInterpreter;
 	static std::map<NodeType, std::string> NodeTypeInterpreter;
+
+	static std::vector<std::string> customFunctionArgsNames;
 	
 	static Expression<double>* currentExpression;
 

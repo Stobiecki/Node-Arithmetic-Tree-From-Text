@@ -5,7 +5,7 @@ template class FunctionNode<double>;
 
 // Define the static map for the template class
 template <class T>
-std::map<std::tuple<std::string, int>, typename FunctionNode<T>::OperatorVariant> FunctionNode<T>::functions;
+std::map<std::tuple<std::string, int>, typename FunctionNode<T>::FunctionVariant> FunctionNode<T>::functions;
 
 template <class T>
 T minus(T x, T y)
@@ -28,6 +28,12 @@ void FunctionNode<T>::ComplementEmptyArgsSection(
     areNodesReady = true;
 }
 
+template <class T>
+double Sin(T a)
+{
+    return std::sin(a);
+}
+
 // Define the Init method for FunctionNode<T>
 template <class T>
 void FunctionNode<T>::Init() 
@@ -44,4 +50,11 @@ void FunctionNode<T>::Init()
     };
     functions[{ "add", 2 }] = [](T x, T y) { return x+y; };
     functions[{ "minus", 2 }] = minus<double>;
+
+    functions[{ "Sin", 1 }] = Sin<double>;
+    functions[{ "sin", 1 }] = static_cast<double(*)(double)>(std::sin);
+
+    functions[{ "cos", 1 }] = static_cast<double(*)(double)>(std::cos);
+    functions[{ "asin", 1 }] = static_cast<double(*)(double)>(std::asin);
+    functions[{ "acos", 1 }] = static_cast<double(*)(double)>(std::acos);
 }

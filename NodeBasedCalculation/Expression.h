@@ -24,9 +24,14 @@
 #include "ValueNode.h"
 #include "VariableNode.h"
 #include "SectionNode.h"
+#include "CustomFunction.h"
+#include "CustomFunctionArgumentNode.h"
 
 using NodeTupleTemplate = std::tuple<std::string, size_t, size_t, NodeType>;
 using FunctionTupleTemplate = std::tuple<std::string, size_t, size_t, int, std::vector<std::pair<int, int>>, std::string>;
+
+template <class T>
+class CustomFunctionNode;
 
 // Main class that functions as a semi-root-node for the specific expression
 template <class T>
@@ -121,9 +126,13 @@ public:
 	// NodeHolder
 	std::vector<std::shared_ptr<Node<double>>> nodeHolder;
 
+	// hook used in cases when expression is used as a custom function 
+	CustomFunctionNode<T>* cfn = nullptr;
+
 	Expression(std::string str);
 
 	void PrepareData();
+	void PrepareDataWithoutCalculation();
 	void LogDataToConsole();
 
 	static void InitPrecedence();
@@ -145,6 +154,13 @@ public:
 
 	T Calculate()
 	{
+		return rootNode.get()->Calculate();
+	}
+
+	T CalculateCustom(CustomFunctionNode<T>* _cfn)
+	{
+		if (cfn == nullptr)
+			cfn = _cfn;
 		return rootNode.get()->Calculate();
 	}
 };

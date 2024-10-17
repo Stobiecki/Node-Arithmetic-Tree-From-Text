@@ -25,8 +25,8 @@ template<class T>
 class FunctionNode : public Node<T>
 {
 public:
-	// Define a variant type to store different function signatures (0 up to 
-	using OperatorVariant = std::variant<
+	// Define a variant type to store different function signatures (0 up to 8)
+	using FunctionVariant = std::variant<
 		std::function<T()>,
 		std::function<T(T)>,
 		std::function<T(T, T)>,
@@ -38,7 +38,7 @@ public:
 		std::function<T(T, T, T, T, T, T, T, T)>
 	>;
 
-	static std::map<std::tuple<std::string, int>, OperatorVariant> functions;
+	static std::map<std::tuple<std::string, int>, FunctionVariant> functions;
 
 	// Method to add a function with 0-8 arguments
 	static void addFunction(const std::string& name, std::function<T()> func) { functions[{name, 0}] = func; }

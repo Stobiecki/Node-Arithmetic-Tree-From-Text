@@ -32,6 +32,19 @@ std::map<NodeType, std::string> StaticData::NodeTypeInterpreter = {
     {NodeType::OPERATORS_PREFIX, "Prefix_operator"},
     {NodeType::OPERATORS_INFIX, "Infix_operator"},
     {NodeType::OPERATORS_POSTFIX, "Postfix_operator"},
+    {NodeType::CUSTOM_FUNCTIONS, "Custom_Function"},
+    {NodeType::CUSTOM_FUNCTIONS_ARGUMENT, "Custom_Function_Argument"},
+};
+
+std::vector<std::string> StaticData::customFunctionArgsNames = {
+    "x1",
+    "x2",
+    "x3",
+    "x4",
+    "x5",
+    "x6",
+    "x7",
+    "x8",
 };
 
 Expression<double>* StaticData::currentExpression = nullptr;
@@ -40,9 +53,13 @@ double StaticData::NaN_Symbol = std::numeric_limits<double>::quiet_NaN();
 
 void StaticData::DataInit()
 {
+    // essential init
     PrefixOperationNode<double>::Init();
     InfixOperationNode<double>::Init();
     PostfixOperationNode<double>::Init();
     FunctionNode<double>::Init();
     Expression<double>::InitPrecedence();
+
+    // post-essential data Init
+    FunctionCreator<double>::Init();
 }

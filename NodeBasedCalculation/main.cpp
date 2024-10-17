@@ -18,6 +18,7 @@
 #include "PostfixOperationNode.h"
 #include "ValueNode.h"
 #include "Expression.h"
+#include "FunctionCreator.h"
 
 int main() 
 {
@@ -65,7 +66,32 @@ int main()
     std::cout << "Time of tree evaluation:      " << std::fixed << std::setprecision(10) << std::setw(20) << std::setfill(' ') << duration_ms << " microseconds" << std::endl;
     std::cout << "Time of tree evaluation:      " << std::fixed << std::setprecision(10) << std::setw(20) << std::setfill(' ') << duration_mils << " milliseconds" << std::endl;
     std::cout << "Time of tree evaluation:      " << std::fixed << std::setprecision(10) << std::setw(20) << std::setfill(' ') << duration_sec << " secunds" << std::endl;
-    std::cout << "\nResult value:                 " << std::fixed << std::setprecision(12) << std::setw(20) << std::setfill(' ') << result << std::endl;
+    std::cout << "\nResult value:                " << std::fixed << std::setprecision(12) << std::setw(20) << std::setfill(' ') << result << std::endl;
+    std::cout << "\n/////////////////////////////////////////////////////////////////";
+
+    // Testing adding new function during runtime
+    std::string newCustomFunctionName;
+    std::string newCustomFunctionExpression;
+    int customFuncNoOfArgs = 2;
+
+    std::cout << "\n\nAdd custom function.";
+    std::cout << "\nProvide function name: ";
+    std::getline(std::cin, newCustomFunctionName);    
+    std::cout << "\nProvide function expression: ";
+    std::getline(std::cin, newCustomFunctionExpression);
+    std::cout << "\nProvide number of args: ";
+    std::cin >> customFuncNoOfArgs;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    
+    // Adding new function
+    FunctionCreator<double>::CreateFunction(newCustomFunctionName, newCustomFunctionExpression, customFuncNoOfArgs);
+
+    std::cout << "\nInput expression: ";
+    std::getline(std::cin, input);
+    Expression<double> expr2(input);
+    expr2.PrepareData();
+    double result2 = expr2.Calculate();
+    std::cout << "\nResult value:                " << std::fixed << std::setprecision(12) << std::setw(20) << std::setfill(' ') << result2 << std::endl;
 
     char c = getchar();
     return 0;
