@@ -40,7 +40,7 @@ int main()
 ```
 
 # Milestones
-:heavy_check_mark: Custom functions implementation at runtime. **(v0.2.0)**
+:heavy_check_mark: Custom function implementation at runtime. **(v0.2.0)**
 
 # Plans for the future?
 - This project is only a part of the bigger project, in which these calculations are essential.
