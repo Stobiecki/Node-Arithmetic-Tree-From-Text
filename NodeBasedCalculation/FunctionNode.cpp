@@ -14,6 +14,12 @@ T minus(T x, T y)
 }
 
 template <class T>
+double Sin(T a)
+{
+    return std::sin(a);
+}
+
+template <class T>
 void FunctionNode<T>::ComplementEmptyArgsSection(
     std::vector<std::pair<std::vector<NodeTupleTemplate>, std::vector<std::shared_ptr<Node<double>>>>>& _vecOfFuncArgsRanges,
     std::vector<FunctionTupleTemplate>& _functions
@@ -29,17 +35,17 @@ void FunctionNode<T>::ComplementEmptyArgsSection(
 }
 
 template <class T>
-double Sin(T a)
-{
-    return std::sin(a);
-}
-
-// Define the Init method for FunctionNode<T>
-template <class T>
 void FunctionNode<T>::Init() 
 {
-    // Insert the "pow" function into the map with correct types
+    // Examples:
+
+    // Insert the "pow" function into the map with correct types, and no. of args
     functions[{ "pow", 2 }] = [](T x, T y) { return std::pow(x, y); };
+
+    // 1) Creation of simple behaviour functions
+    functions[{ "add", 2 }] = [](T x, T y) { return x + y; };
+
+    // 2) Creation of complex behaviour functions
     functions[{ "root", 2 }] = [](T x, T y) {
         if ((std::fmod(x, 2.0) != 0) || (std::fmod(x, 2.0) == 0 && y >= 0))
         {
@@ -48,12 +54,13 @@ void FunctionNode<T>::Init()
         else
             return std::nan("");
     };
-    functions[{ "add", 2 }] = [](T x, T y) { return x+y; };
+
+    // 3) Forwarding a call by the use of helper function
     functions[{ "minus", 2 }] = minus<double>;
-
     functions[{ "Sin", 1 }] = Sin<double>;
-    functions[{ "sin", 1 }] = static_cast<double(*)(double)>(std::sin);
 
+    // 4) Forwarding inbuild functions
+    functions[{ "sin", 1 }] = static_cast<double(*)(double)>(std::sin);
     functions[{ "cos", 1 }] = static_cast<double(*)(double)>(std::cos);
     functions[{ "asin", 1 }] = static_cast<double(*)(double)>(std::asin);
     functions[{ "acos", 1 }] = static_cast<double(*)(double)>(std::acos);

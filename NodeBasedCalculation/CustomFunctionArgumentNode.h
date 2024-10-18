@@ -29,10 +29,9 @@ public:
 	T Calculate() override
 	{
 		if (!argHandleSet)
-		{
-			argHandle = &(expressionHook->cfn->sections);
 			argHandleSet = true;
-		}
+
+		argHandle = &(expressionHook->cfn->sections);
 		return (*argHandle)[argPos-1].get()->Calculate();
 	}
 };

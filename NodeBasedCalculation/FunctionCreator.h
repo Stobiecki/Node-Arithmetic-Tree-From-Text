@@ -10,6 +10,44 @@
 template<class T>
 class CustomFunctionNode;
 
+
+//
+// How it works?
+// 
+// We have 4 essential classes: FunctionCreator, CustomFunctionNode, CustomFunctionArgumentNode, Expression
+// 
+// CREATION:
+// After calling for methods such as CreateFunction() the new function is being created.
+// New user-created function/lambda is being stored inside of a static map called "customFunctions".
+// We can think of a newly made funtion as of a lambda that stores an Expression instance. It effectively
+// means that a new function is an already built tree. Arguments that can be passed to the function using
+// arguments named x1, x2, ... , x8 - these are represented in the lambda's expression as a
+// CustomFunctionArgumentNode node. These nodes don't contain any value, nor have any children in a
+// typical sense. When created, they receive info about the Expression instance that they are in.
+//
+// USAGE:
+// When creation of a CustomFunctionNode takes place, the info about itself (cfn) is passed to the 
+// expression stored in the lambda (so that it can be saved in the Expression). This enables linkage 
+// between CustomFunctionArgumentNode and CustomFunctionNode.
+// 
+// CustomFunctionArgumentNode -> Expression -> CustomFunctionNode
+// 
+// This is essential to optimize the process of passing arguments to the function. Ideal is to reuse each
+// of the passed arguments, not to copy each of them.
+// 
+// For example:
+// function definition:		Custom(x1)
+// function expression:		cos(x1)+x1
+// 
+// function invocation:		Custom(1*2)
+// 
+// Whenever function will be invoked like this argument (here it is x1) can be reused multiple times
+// in multiple places, so CustomFunctionNode holds each of the arguments ready for CustomFunctionArgumentNode
+// to access them when needed, without bloating Expression or a newly created function.
+// 
+// It is important to remember that the function/lambda dosen't take ownership of cfn, it is only passed to
+// let CustomFunctionArgumentNode access CustomFunctionNode's arguments.
+//
 template<class T>
 class FunctionCreator
 {

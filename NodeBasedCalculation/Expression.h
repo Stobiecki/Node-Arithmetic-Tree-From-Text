@@ -159,8 +159,7 @@ public:
 
 	T CalculateCustom(CustomFunctionNode<T>* _cfn)
 	{
-		if (cfn == nullptr)
-			cfn = _cfn;
+		cfn = _cfn;
 		return rootNode.get()->Calculate();
 	}
 };

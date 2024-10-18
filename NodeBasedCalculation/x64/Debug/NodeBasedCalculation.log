@@ -1,7 +1,111 @@
-﻿  main.cpp
-E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244: "inicjowanie": konwersja z "_Rep" do "double", możliwa utrata danych
-E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244:         with
-E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244:         [
-E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244:             _Rep=__int64
-E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(53,24): warning C4244:         ]
+﻿  CustomFunction.cpp
+  CustomFunctionArgumentNode.cpp
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.h(44,83): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „CustomFunction.cpp”)
+  E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.h(44,83):
+  kontekst tworzenia wystąpienia szablonu (najpierw najstarszy) to
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.cpp(3,42):
+  	zobacz odwołanie do kompilowanego tworzenia wystąpienia „CustomFunctionNode<double>” klasy klasa szablon
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.h(43,2):
+  	podczas kompilowania funkcji składowej „CustomFunctionNode<double>::CustomFunctionNode(std::string,int,std::function<T (CustomFunctionNode<T> *)>,size_t,size_t)” klasy klasa szablon
+          with
+          [
+              T=double
+          ]
+  
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.h(44,96): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „CustomFunction.cpp”)
+  
+  Expression.cpp
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(204,18): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(213,13): warning C4244: "inicjowanie": konwersja z "__int64" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(375,30): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(380,30): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(420,19): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(421,17): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(425,15): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(434,30): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(451,19): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(452,17): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(468,19): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(469,17): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(484,27): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(486,29): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(490,42): warning C4267: "argument": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(491,42): warning C4267: "argument": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(492,19): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(720,18): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.h(44,83): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „Expression.cpp”)
+  E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.h(44,83):
+  kontekst tworzenia wystąpienia szablonu (najpierw najstarszy) to
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(691,70):
+  	podczas przetwarzania domyślnego argumentu szablonu elementu „std::shared_ptr<Node<double>>::shared_ptr(std::unique_ptr<_Ux,_Dx> &&)”
+  	C:\Programy\Visual Studio Community\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(1664,20):
+  	zobacz odwołanie do aktualnie kompilowanego szablonu zmiennych „const bool conjunction_v<std::_SP_pointer_compatible<CustomFunctionNode<double>,Node<double> >,std::is_convertible<CustomFunctionNode<double> *,Node<double> *> >”
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(691,110):
+  	zobacz odwołanie do kompilowanego tworzenia wystąpienia „std::_SP_pointer_compatible<CustomFunctionNode<double>,Node<double>>” klasy klasa szablon
+  	C:\Programy\Visual Studio Community\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(1507,1):
+  	zobacz odwołanie do kompilowanego tworzenia wystąpienia „std::is_convertible<CustomFunctionNode<double> *,Node<double> *>” klasy klasa szablon
+  	C:\Programy\Visual Studio Community\2022\Community\VC\Tools\MSVC\14.38.33130\include\type_traits(323,39):
+  	zobacz odwołanie do kompilowanego tworzenia wystąpienia „CustomFunctionNode<double>” klasy klasa szablon
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.h(43,2):
+  	podczas kompilowania funkcji składowej „CustomFunctionNode<double>::CustomFunctionNode(std::string,int,std::function<T (CustomFunctionNode<T> *)>,size_t,size_t)” klasy klasa szablon
+          with
+          [
+              T=double
+          ]
+  		C:\Programy\Visual Studio Community\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(3465,5):
+  		zobacz pierwsze odwołanie do elementu „CustomFunctionNode<double>::CustomFunctionNode” w „std::make_unique”
+  
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\CustomFunction.h(44,96): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „Expression.cpp”)
+  
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.h(82,83): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „Expression.cpp”)
+  E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.h(82,83):
+  kontekst tworzenia wystąpienia szablonu (najpierw najstarszy) to
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\Expression.cpp(389,61):
+  	zobacz odwołanie do kompilowanego tworzenia wystąpienia „FunctionNode<double>” klasy klasa szablon
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.h(81,2):
+  	podczas kompilowania funkcji składowej „FunctionNode<double>::FunctionNode(std::string,int,std::function<T (std::vector<T,std::allocator<T>>)>,size_t,size_t)” klasy klasa szablon
+          with
+          [
+              T=double
+          ]
+  		C:\Programy\Visual Studio Community\2022\Community\VC\Tools\MSVC\14.38.33130\include\memory(3465,5):
+  		zobacz pierwsze odwołanie do elementu „FunctionNode<double>::FunctionNode” w „std::make_unique”
+  
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.h(82,96): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „Expression.cpp”)
+  
+  FunctionCreator.cpp
+  FunctionNode.cpp
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.h(82,83): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „FunctionNode.cpp”)
+  E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.h(82,83):
+  kontekst tworzenia wystąpienia szablonu (najpierw najstarszy) to
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.cpp(4,36):
+  	zobacz odwołanie do kompilowanego tworzenia wystąpienia „FunctionNode<double>” klasy klasa szablon
+  	E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.h(81,2):
+  	podczas kompilowania funkcji składowej „FunctionNode<double>::FunctionNode(std::string,int,std::function<T (std::vector<T,std::allocator<T>>)>,size_t,size_t)” klasy klasa szablon
+          with
+          [
+              T=double
+          ]
+  
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\FunctionNode.h(82,96): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+  (kompilowanie pliku źródłowego „FunctionNode.cpp”)
+  
+  SectionNode.cpp
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\SectionNode.cpp(12,17): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\SectionNode.cpp(13,8): warning C4267: "=": konwersja z "size_t" do "int", możliwa utrata danych
+  StaticData.cpp
+  main.cpp
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(54,24): warning C4244: "inicjowanie": konwersja z "_Rep" do "double", możliwa utrata danych
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(54,24): warning C4244:         with
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(54,24): warning C4244:         [
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(54,24): warning C4244:             _Rep=__int64
+E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\NodeBasedCalculation\main.cpp(54,24): warning C4244:         ]
+  Generowanie kodu...
   NodeBasedCalculation.vcxproj -> E:\Projekty\git - repozytoria\Node-Arithmetic-Tree-From-Text\Node-Arithmetic-Tree-From-Text\x64\Debug\NodeBasedCalculation.exe
